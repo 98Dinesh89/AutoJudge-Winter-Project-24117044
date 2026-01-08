@@ -1,49 +1,49 @@
 ** AutoJudge – Programming Problem Difficulty Prediction **
 
 # 1. Project Overview
-Online competitive programming platforms (such as Codeforces, CodeChef, Kattis) classify problems into difficulty levels like Easy, Medium, and Hard, often accompanied by a numerical difficulty score.
-This process is typically based on human judgment and user feedback.
+    Online competitive programming platforms (such as Codeforces, CodeChef, Kattis) classify problems into difficulty levels like Easy, Medium, and Hard, often    accompanied by a numerical difficulty score.
+    This process is typically based on human judgment and user feedback.
 
-AutoJudge is a machine learning–based system project that automatically predicts the difficulty of a programming problem using only its textual description, without relying on solution code or user statistics.
+    AutoJudge is a machine learning–based system project that automatically predicts the difficulty of a programming problem using only its textual description, without relying on solution code or user statistics.
 
-The system predicts:
-. Difficulty Class → Easy / Medium / Hard (classification)
-. Difficulty Score → Numerical value between 1 and 10 (regression)
+    The system predicts:
+    . Difficulty Class → Easy / Medium / Hard (classification)
+    . Difficulty Score → Numerical value between 1 and 10 (regression)
 
-A simple web interface is provided for real-time predictions using trained models.
+    A simple web interface is provided for real-time predictions using trained models.
 
 # 2. Dataset Used
-File: data/problems_data.jsonl
+    File: data/problems_data.jsonl
 
-Each problem contains:
-. title
-. description
-. input description
-. output description
-. examples
-. problem class
-. problem score
-. url
+    Each problem contains:
+    . title
+    . description
+    . input description
+    . output description
+    . examples
+    . problem class
+    . problem score
+    . url
 
 # 3. Project Structure
 
-AUTOJUDGE WINTER PROJECT/
-│
-├── data/
-│ ├── problems_data.jsonl
-│ └── preprocessed_data.csv
-│
-├── trained_models/
-│ ├── classification_model.joblib
-│ └── regression_model.joblib
-|
-├── data_preprocessing.ipynb
-├── model1.ipynb (Classification model)
-├── model2.ipynb (Regression model)
-├── app.py (Web interface)
-├── requirements.txt
-├── README.md
-└── Demo video
+    AUTOJUDGE WINTER PROJECT/
+    │
+    ├── data/
+    │ ├── problems_data.jsonl
+    │ └── preprocessed_data.csv
+    │
+    ├── trained_models/
+    │ ├── classification_model.joblib
+    │ └── regression_model.joblib
+    |
+    ├── data_preprocessing.ipynb
+    ├── model1.ipynb (Classification model)
+    ├── model2.ipynb (Regression model)
+    ├── app.py (Web interface)
+    ├── requirements.txt
+    ├── README.md
+    └── Demo video
 
 # 4. Approach and Models Used
 
@@ -140,8 +140,8 @@ AUTOJUDGE WINTER PROJECT/
 
 # 9. My Details
 
-Name: Dinesh Sunda
-Project: AutoJudge – Programming Problem Difficulty Prediction
-Enrollment no. 24117044
-Mobile no. 7852066006
-2nd year, mech
+    Name: Dinesh Sunda
+    Project: AutoJudge – Programming Problem Difficulty Prediction
+    Enrollment no. 24117044
+    Mobile no. 7852066006
+    2nd year, mech
