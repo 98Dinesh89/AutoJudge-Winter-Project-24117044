@@ -1,7 +1,6 @@
-**AutoJudge – Programming Problem Difficulty Prediction**
+** AutoJudge – Programming Problem Difficulty Prediction **
 
 # 1. Project Overview
-
 Online competitive programming platforms (such as Codeforces, CodeChef, Kattis) classify problems into difficulty levels like Easy, Medium, and Hard, often accompanied by a numerical difficulty score.
 This process is typically based on human judgment and user feedback.
 
@@ -14,7 +13,6 @@ The system predicts:
 A simple web interface is provided for real-time predictions using trained models.
 
 # 2. Dataset Used
-
 File: data/problems_data.jsonl
 
 Each problem contains:
