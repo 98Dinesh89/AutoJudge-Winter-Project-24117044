@@ -1,149 +1,148 @@
-**AutoJudge – Programming Problem Difficulty Prediction**
+** AutoJudge – Programming Problem Difficulty Prediction **
 
-    # 1. Project Overview
+# 1. Project Overview
 
-        Online competitive programming platforms (such as Codeforces, CodeChef, Kattis) classify problems into difficulty levels like Easy, Medium, and Hard, often accompanied by a numerical difficulty score.
-        This process is typically based on human judgment and user feedback.
+    Online competitive programming platforms (such as Codeforces, CodeChef, Kattis) classify problems into difficulty levels like Easy, Medium, and Hard, often    accompanied by a numerical difficulty score.
+    This process is typically based on human judgment and user feedback.
 
-        AutoJudge is a machine learning–based system project that automatically predicts the difficulty of a programming problem using only its textual description, without relying on solution code or user statistics.
+    AutoJudge is a machine learning–based system project that automatically predicts the difficulty of a programming problem using only its textual description, without relying on solution code or user statistics.
 
-        The system predicts:
-        . Difficulty Class → Easy / Medium / Hard (classification)
-        . Difficulty Score → Numerical value between 1 and 10 (regression)
+    The system predicts:
+    . Difficulty Class → Easy / Medium / Hard (classification)
+    . Difficulty Score → Numerical value between 1 and 10 (regression)
 
-        A simple web interface is provided for real-time predictions using trained models.
+    A simple web interface is provided for real-time predictions using trained models.
 
-    # 2. Dataset Used
+# 2. Dataset Used
 
-        File: data/problems_data.jsonl
+    File: data/problems_data.jsonl
 
-        Each problem contains:
-        . title
-        . description
-        . input description
-        . output description
-        . examples
-        . problem class
-        . problem score
-        . url
+    Each problem contains:
+    . title
+    . description
+    . input description
+    . output description
+    . examples
+    . problem class
+    . problem score
+    . url
 
-    # 3. Project Structure
+# 3. Project Structure
 
-        AUTOJUDGE WINTER PROJECT/
-        │
-        ├── data/
-        │ ├── problems_data.jsonl
-        │ └── preprocessed_data.csv
-        │
-        ├── trained_models/
-        │ ├── classification_model.joblib
-        │ └── regression_model.joblib
-        |
-        ├── data_preprocessing.ipynb
-        ├── model1.ipynb (Classification model)
-        ├── model2.ipynb (Regression model)
-        ├── app.py (Web interface)
-        ├── requirements.txt
-        ├── README.md
-        └── Demo video
+    AUTOJUDGE WINTER PROJECT/
+    │
+    ├── data/
+    │ ├── problems_data.jsonl
+    │ └── preprocessed_data.csv
+    │
+    ├── trained_models/
+    │ ├── classification_model.joblib
+    │ └── regression_model.joblib
+    |
+    ├── data_preprocessing.ipynb
+    ├── model1.ipynb (Classification model)
+    ├── model2.ipynb (Regression model)
+    ├── app.py (Web interface)
+    ├── requirements.txt
+    └── README.md
 
-    # 4. Approach and Models Used
+# 4. Approach and Models Used
 
-        i. Data Preprocessing
+    i. Data Preprocessing
 
-            Combined all text fields into a single full_text
+        Combined all text fields into a single full_text
 
-            Handled missing values
+        Handled missing values
 
-            Engineered numeric features:
-                . Text length
-                . Count of mathematical symbols
+        Engineered numeric features:
+            . Text length
+            . Count of mathematical symbols
 
-            Saved processed data for reuse
+        Saved processed data for reuse
 
-        ii. Feature Extraction (included in the file model1.ipynb and model2.ipynb)
+    ii. Feature Extraction (included in the file model1.ipynb and model2.ipynb)
 
-            TF-IDF vectorization (max_features = 5000)
+        TF-IDF vectorization (max_features = 5000)
 
-            Numeric features concatenated with TF-IDF vectors
+        Numeric features concatenated with TF-IDF vectors
 
-        iii. Model 1: Difficulty Classification
+    iii. Model 1: Difficulty Classification
 
-            Model: Random Forest Classifier
+        Model: Random Forest Classifier
 
-            Input: TF-IDF + numeric features
+        Input: TF-IDF + numeric features
 
-            Output: Easy / Medium / Hard
+        Output: Easy / Medium / Hard
 
-        iv. Model 2: Difficulty Score Prediction
+    iv. Model 2: Difficulty Score Prediction
 
-            Model: Random Forest Regressor
+        Model: Random Forest Regressor
 
-            Input: TF-IDF + numeric features (Same features as classification model)
+        Input: TF-IDF + numeric features (Same features as classification model)
 
-            Output: Difficulty score (1–10)
+        Output: Difficulty score (1–10)
 
-    # 5. Evaluation Metrics and Results
+# 5. Evaluation Metrics and Results
 
-        i. Classification Performance
+    i. Classification Performance
 
-            Random Forest accuracy: 0.5455650060753341
+        Random Forest accuracy: 0.5455650060753341
 
-            Confusion matrix:
-                [[ 30  66  40]
-                [  8  376  41]
-                [ 14  205  43]]
+        Confusion matrix:
+            [[ 30  66  40]
+            [  8  376  41]
+            [ 14  205  43]]
 
-            Most errors occur between Medium and Hard classes due to similar textual patterns
+        Most errors occur between Medium and Hard classes due to similar textual patterns
 
-        ii. Regression Performance
+    ii. Regression Performance
 
-            MAE: ~1.69
+        MAE: ~1.69
 
-            RMSE: ~2.04
+        RMSE: ~2.04
 
-            R² Score: ~0.13
+        R² Score: ~0.13
 
-    # 6. Web Interface
+# 6. Web Interface
 
-        Web interface built using Streamlit:
+    Web interface built using Streamlit:
 
-        Paste the complete problem statement into a single text box (unprocessed data)
+    Paste the complete problem statement into a single text box (unprocessed data)
 
-        Click the Predict button
+    Click the Predict button
 
-        View:
-        . Predicted difficulty score
-        . Predicted difficulty class
+    View:
+    . Predicted difficulty score
+    . Predicted difficulty class
 
-        Note: Class and score are predicted independently with different models and may not always agree.
+    Note: Class and score are predicted independently with different models and may not always agree.
 
-        The application loads pre-trained models.
+    The application loads pre-trained models.
 
-    # 7. Steps to Run the Project Locally
+# 7. Steps to Run the Project Locally
 
-        Note: If the required libraries (requirements.txt) are already installed on your system, you can skip creating a virtual environment and run the project directly.
+    Note: If the required libraries (requirements.txt) are already installed on your system, you can skip creating a virtual environment and run the project directly.
 
-        Step 1: Creat and Activate Virtual Environment (Optinal)
-        python -m venv mylib
-        mylib\Scripts\activate
+    Step 1: Creat and Activate Virtual Environment (Optinal)
+    python -m venv mylib
+    mylib\Scripts\activate
 
-        Step 2: Install Required Libraries
-        pip install -r requirements.txt
+    Step 2: Install Required Libraries
+    pip install -r requirements.txt
 
-        Step 3: Run the Web Application
-        streamlit run app.py
+    Step 3: Run the Web Application
+    streamlit run app.py
 
-        Open the local URL shown in the terminal
+    Open the local URL shown in the terminal
 
-    # 8. Demo Video
+# 8. Demo Video
 
-        Included in repository
+    url : https://youtu.be/-Q7gF6pxrhw
 
-    # 9. My Details
+# 9. My Details
 
-        Name: Dinesh Sunda
-        Project: AutoJudge – Programming Problem Difficulty Prediction
-        Enrollment no. 24117044
-        Mobile no. 7852066006
-        2nd year, mech
+    Name: Dinesh Sunda
+    Project: AutoJudge – Programming Problem Difficulty Prediction
+    Enrollment no. 24117044
+    Mobile no. 7852066006
+    2nd year, mech
