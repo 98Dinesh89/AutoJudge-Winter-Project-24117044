@@ -138,7 +138,7 @@
 
 # 8. Demo Video
 
-    url : https://youtu.be/-Q7gF6pxrhw
+    **url :** https://youtu.be/-Q7gF6pxrhw
 
 # 9. My Details
 
