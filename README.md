@@ -42,8 +42,7 @@
     ├── model2.ipynb (Regression model)
     ├── app.py (Web interface)
     ├── requirements.txt
-    ├── README.md
-    └── Demo video
+    └── README.md
 
 # 4. Approach and Models Used
 
@@ -136,7 +135,7 @@
 
 # 8. Demo Video
 
-    Included in repository
+    url : https://youtu.be/-Q7gF6pxrhw
 
 # 9. My Details
 
